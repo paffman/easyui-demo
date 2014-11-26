@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <script type="text/javascript" src="scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/easyloader.js"></script>
+    <script type="text/javascript" src="scripts/jquery.easyui.min.js"></script>
 
     <title>Huhu</title>
 
@@ -10,23 +10,18 @@
 <p>Test</p>
 <button onclick="jQuery(this).attr('disabled', 'true');">jQuery active?</button>
 
+<table id="dg" class="easyui-datagrid"></table>
 
-<table id="dg" title="Leute" class="easyui-datagrid" style="width:550px;height:250px"
-       url="/json?vorname=hans&name=test&alter=25"
-       rownumbers="true" fitColumns="true" singleSelect="true">
-    <thead>
-    <tr>
-        <th field="vorname" width="50">First Name</th>
-        <th field="name" width="50">Last Name</th>
-        <th field="alter" width="50">Age</th>
-    </tr>
-    </thead>
-</table>
-<!--<div id="toolbar">-->
-    <!--<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>-->
-    <!--<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>-->
-    <!--<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>-->
-<!--</div>-->
+<script>
+		$('#dg').datagrid({
+	    url:'/json?vorname=hans&name=test&alter=25',
+	    columns:[[
+	        {field:'vorname',title:'Vorname',width:100},
+	        {field:'name',title:'Name',width:100},
+	        {field:'alter',title:'Alter',width:100,align:'right'}
+	    ]]
+	});
+</script>
 
 </body>
 </html>

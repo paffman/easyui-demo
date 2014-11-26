@@ -30,6 +30,6 @@ public class JsonServlet extends HttpServlet {
 
         // response basteln
         PrintWriter writer = resp.getWriter();
-        writer.write(mapper.mapToJson(model));
+        writer.write("[" + mapper.mapToJson(model) + "]");
     }
 }
